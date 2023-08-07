@@ -29,7 +29,7 @@ This repository contains programs created for the _**ALX Software Engineering Hi
 | 0x14  | [javascript-web_scraping](0x14-javascript-web_scraping)                                  |
 | 0x15  | [Javascript-web_jquery](./0x15-javascript-web_jquery/)                                   |
 
-### AUTHOR:INI JUSTINE
+## AUTHOR: INI JUSTINE
 
 ---
 
