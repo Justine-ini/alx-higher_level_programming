@@ -15,4 +15,3 @@ class Square:
         else:
             """ initialize __size of self with size """
             self.__size = size
-
