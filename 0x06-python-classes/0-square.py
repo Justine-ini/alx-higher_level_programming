@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 """define a class"""
-class my_square():
+
+
+class Square():
     """defines n empty class"""
     pass
