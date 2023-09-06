@@ -32,7 +32,7 @@ if __name__ == "__main__":
         return False
 
     def reject(x, y):
-        """determine whether or not to reject the solution"""
+        """determines whether or not to reject the solution"""
         if (already_exists(y)):
             return False
         i = 0
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         return True
 
     def clear_a(x):
-        """clear the answers from the point of failure on"""
+        """clears the answers from the point of failure on"""
         for i in range(x, n):
             a[i][1] = None
 
@@ -57,5 +57,6 @@ if __name__ == "__main__":
                     print(a)
                 else:
                     nqueens(x + 1)  # moves on to next x value to continue
+
     # start the recursive process at x = 0
     nqueens(0)
