@@ -1,8 +1,13 @@
 #!/usr/bin/python3
+"""
+
+This module is composed by a function that adds two numbers
+
+"""
+
 
 def add_integer(a, b=98):
-    """
-    Adds two integers.
+    """ Function that adds two integer and/or float numbers
 
     Args:
         a: The first integer.
@@ -10,6 +15,10 @@ def add_integer(a, b=98):
 
     Returns:
         The sum of a and b.
+
+    Raises:
+        TypeError: If a or b aren't integer and/or float numbers
+
     """
 
     if not isinstance(a, int) or not isinstance(a, float):
