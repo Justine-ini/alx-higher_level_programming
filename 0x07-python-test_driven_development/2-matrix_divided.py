@@ -7,15 +7,14 @@ This module is composed by a function that divides the numbers of a matrix
 
 
 def matrix_divided(matrix, div):
-    """
-    Divides all elements of a matrix.
+    """ Function that divides the integer/float numbers of a matrix
 
     Args:
-        matrix: A list of lists of integers or floats.
-        div: A number (integer or float).
+        matrix: list of a lists of integers/floats
+        div: number which divides the matrix
 
     Returns:
-        A new matrix with all elements divided by div.
+        A new matrix with the result of the division
 
     Raises:
         TypeError: If the elements of the matrix aren't lists
@@ -25,25 +24,35 @@ def matrix_divided(matrix, div):
 
         ZeroDivisionError: If div is zero
 
+
     """
-    if not isinstance(matrix, list):
-        raise TypeError('matrix must be a list of lists')
-    for row in matrix:
-        if not isinstance(row, list):
-            raise TypeError('matrix must be a list of lists')
 
-    if len(matrix[0]) != len(matrix[1]):
-        raise TypeError('Each row of the matrix must have the same size')
-
-    if not isinstance(div, (int, float)):
-        raise TypeError('div must be a number')
+    if not type(div) in (int, float):
+        raise TypeError("div must be a number")
 
     if div == 0:
-        raise ZeroDivisionError('division by zero')
+        raise ZeroDivisionError("division by zero")
 
-    new_matrix = []
-    for row in matrix:
-        new_row = [round(element / div, 2) for element in row]
-        new_matrix.append(new_row)
+    msg_type = "matrix must be a matrix (list of lists) of integers/floats"
 
-    return new_matrix
+    if not matrix or not isinstance(matrix, list):
+        raise TypeError(msg_type)
+
+    len_e = 0
+    msg_size = "Each row of the matrix must have the same size"
+
+    for elems in matrix:
+        if not elems or not isinstance(elems, list):
+            raise TypeError(msg_type)
+
+        if len_e != 0 and len(elems) != len_e:
+            raise TypeError(msg_size)
+
+        for num in elems:
+            if not type(num) in (int, float):
+                raise TypeError(msg_type)
+
+        len_e = len(elems)
+
+    m = list(map(lambda x: list(map(lambda y: round(y / div, 2), x)), matrix))
+    return (m)
