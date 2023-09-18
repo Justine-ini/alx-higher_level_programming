@@ -54,7 +54,7 @@ class Square(Rectangle):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
-
+        
         self.width = value
         self.height = value
 
@@ -82,15 +82,16 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """Return the dictionary representation of the Square."""
-        return {
-            "id": self.id,
-            "size": self.width,
-            "x": self.x,
-            "y": self.y
-        }
+        """Returns the dictionary representation of a Square.
 
-    def __str__(self):
-        """Return the print() and str() representation of a Square."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                 self.width)
+        Returns:
+            dict: square.
+        """
+        dict1 = self.__dict__
+        dict2 = {}
+        dict2['id'] = dict1['id']
+        dict2['size'] = dict1['_Rectangle__width']
+        dict2['x'] = dict1['_Rectangle__x']
+        dict2['y'] = dict1['_Rectangle__y']
+
+        return dict2
