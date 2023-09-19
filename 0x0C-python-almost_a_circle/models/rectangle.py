@@ -108,26 +108,17 @@ class Rectangle(Base):
                                                        self.x, self.y,
                                                        self.width, self.height)
 
-    def update(self, *args):
-        """
-        Update instance attributes with new values.
+    def update(self, *args, **kwargs):
+        """Assigns an argument to each attribute
 
         Args:
-            *args: Positional arguments containing values to update
-            attributes.
+            *args (tuple): arguments.
+            **kwargs (dict): double pointer to a dictionary.
         """
 
-        num_args = len(args)
-        if num_args = 0:
-            raise ValueError("At least one argument is required.")
-        for arg in num_args:
-            if arg == 1:
-                self.id = args[0]
-            if arg == 2:
-                self.width = args[1]
-            if arg == 3:
-                self.height = args[2]
-            if arg == 4:
-                self.x = args[3]
-            if arg == 5:
-                self.y = args[4]
+        # print("args {}".format(type(args)))
+        # print("kwargs {}".format(type(kwargs)))
+        if args is not None and len(args) is not 0:
+            list_atrr = ['id', 'width', 'height', 'x', 'y']
+            for i in range(len(args)):
+                setattr(self, list_atrr[i], args[i])
