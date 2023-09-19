@@ -122,3 +122,7 @@ class Rectangle(Base):
             list_atrr = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
                 setattr(self, list_atrr[i], args[i])
+
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
