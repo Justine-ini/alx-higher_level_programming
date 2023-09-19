@@ -56,3 +56,28 @@ class Square(Rectangle):
         """Return the print() and str() representation of a Square."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
                                                  self.width)
+
+    def update(self, *args, **kwargs):
+        """Assigns an argument to each attribute
+
+        Args:
+            *args (tuple): arguments.
+            **kwargs (dict): double pointer to a dictionary.
+        """
+
+        if args is not None and len(args) is not 0:
+            list_atr = ['id', 'size', 'x', 'y']
+            for i in range(len(args)):
+                if list_atr[i] == 'size':
+                    setattr(self, 'width', args[i])
+                    setattr(self, 'height', args[i])
+                else:
+                    setattr(self, list_atr[i], args[i])
+
+        else:
+            for key, value in kwargs.items():
+                if key == 'size':
+                    setattr(self, 'width', value)
+                    setattr(self, 'height', value)
+                else:
+                    setattr(self, key, value)
