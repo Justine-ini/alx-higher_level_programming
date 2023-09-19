@@ -81,8 +81,8 @@ class Square(Rectangle):
                     setattr(self, 'height', value)
                 else:
                     setattr(self, key, value)
-
-     def to_dictionary(self):
+    
+    def to_dictionary(self):
         """Return the dictionary representation of the Square."""
         return {
             "id": self.id,
