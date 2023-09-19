@@ -6,26 +6,19 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """Represents a Rectangle width, height and position
-
-    Attributes:
-        width(int): The width of theRectangle
-        height(int): The height of the Rectangle
-        x(int): The x-coordinate of the Rectangle's position
-        y(int): The y-coordinate of the Rectangle's position
-        id(int): The unique identifier for the Rectangle
-    """
+    """Represents a Rectangle width, height and position"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initializes a Rectangle intance.
-        Args:
-            width(int): The width of theRectangle
-            height(int): The height of the Rectangle
-            x(int): The x-coordinate of the Rectangle's position. Default is 0.
-            y(int): The y-coordinate of the Rectangle's position. Default is 0.
-            id(int): The unique identifier for the Rectangle. Default is None.
         """
+        Initialize a Rectangle instance.
 
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+            x (int, optional): The x-coordinate of the rectangle's position. Default is 0.
+            y (int, optional): The y-coordinate of the rectangle's position. Default is 0.
+            id (int, optional): The ID to assign to the instance. If None, auto-generates a new ID.
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -34,89 +27,48 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """int: Get the width of the rectangle."""
+        """Getter for the width attribute."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle.
-
-            Args:
-                value(int): The width value to set
-
-            Raises:
-                ValueError: If the width is not a positive number
-                TypeError: if the type is not an integer
-        """
-
-        if type(value) != int:
-            raise TypeError("width must be an integer")
+        """Setter for the width attribute."""
         if value <= 0:
-            raise ValueError("width must be > than 0")
+            raise ValueError("Width must be greater than zero")
         self.__width = value
 
     @property
     def height(self):
-        """int: Get the height of the rectangle."""
+        """Getter for the height attribute."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle.
-
-            Args:
-                value(int): The height value to set
-
-            Raises:
-                ValueError: If the height is not a positive number
-                TypeError: if the type is not an integer
-        """
-        if type(value) != int:
-            raise TypeError("height must be an integer")
+        """Setter for the height attribute."""
         if value <= 0:
-            raise ValueError("height must be > 0")
+            raise ValueError("Height must be greater than zero")
         self.__height = value
 
     @property
     def x(self):
-        """int: Get the x-coordinate of the rectangle's position."""
+        """Getter for the x attribute."""
         return self.__x
 
     @x.setter
     def x(self, value):
-        """Set the x-coordinate of the rectangle's position.
-
-            Args:
-                value (int): The x-coordinate value to set.
-
-            Raises:
-                ValueError: If the width is not a positive number
-                TypeError: if the type is not an integer
-        """
-        if type(x) != int:
-            raise TypeError("x must be an integer")
-        if value <= 0:
-            raise ValueError("x must be >= 0")
+        """Setter for the x attribute."""
+        if value < 0:
+            raise ValueError("X must be non-negative")
         self.__x = value
 
     @property
     def y(self):
-        """int: Get the y-coordinate of the rectangle's position."""
+        """Getter for the y attribute."""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """Set the y-coordinate of the rectangle's position.
-
-            Args:
-                value (int): The y-coordinate value to set.
-
-            Raises:
-                ValueError: If the width is not a positive number
-                TypeError: if the type is not an integer
-        """
-        if type(y) != int:
-            raise TypeError("y must be an integer")
-        if value <= 0:
-            raise ValueError("y must be >= 0")
+        """Setter for the y attribute."""
+        if value < 0:
+            raise ValueError("Y must be non-negative")
         self.__y = value
