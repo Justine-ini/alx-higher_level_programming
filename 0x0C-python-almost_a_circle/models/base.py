@@ -71,3 +71,23 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    def create(cls, **dictionary):
+        """
+        Create an instance with attributes set from a dictionary.
+
+        Args:
+            dictionary (dict): A dictionary containing attribute values.
+
+        Returns:
+            instance: An instance with attributes set based on the dictionary.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            return None
+
+        dummy.update(**dictionary)
+        return dummy
