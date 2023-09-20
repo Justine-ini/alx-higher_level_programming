@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a class Base"""
 import json
+import os.path
 
 
 class Base:
@@ -25,8 +26,12 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        list_dictionaries = []
-        if list_dictionaries is None or list_dictionaries == "[]":
+        """Return the JSON serialization of a list of dicts.
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
+
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
