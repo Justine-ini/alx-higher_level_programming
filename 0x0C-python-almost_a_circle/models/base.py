@@ -160,3 +160,43 @@ class Base:
         except(Exception):
             pass
         return(my_obj)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw rectangles and squares using Turtle graphics."""
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+
+        # Create a Turtle object for drawing
+        pen = turtle.Turtle()
+        pen.speed(1)  # Set the drawing speed (adjust as needed)
+
+        # Draw rectangles
+        for rectangle in list_rectangles:
+            pen.penup()  # Lift the pen to move without drawing
+            pen.goto(rectangle.x, rectangle.y)  # Move to the starting position
+            pen.pendown()  # Lower the pen to start drawing
+            pen.color("blue")  # Set the color (you can change it)
+
+            for _ in range(2):
+                pen.forward(rectangle.width)
+                pen.left(90)
+                pen.forward(rectangle.height)
+                pen.left(90)
+            pen.penup()  # Lift the pen after drawing the rectangle
+
+        # Draw squares
+        for square in list_squares:
+            pen.penup()  # Lift the pen to move without drawing
+            pen.goto(square.x, square.y)  # Move to the starting position
+            pen.pendown()  # Lower the pen to start drawing
+            pen.color("red")  # Set the color (you can change it)
+
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.left(90)
+
+            pen.penup()  # Lift the pen after drawing the square
+
+        # Close the Turtle graphics window when clicked
+        screen.exitonclick()
