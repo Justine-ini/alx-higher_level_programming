@@ -163,40 +163,40 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Draw rectangles and squares using Turtle graphics."""
-        screen = turtle.Screen()
-        screen.title("Drawing Rectangles and Squares")
+        """Draw Rectangles and Squares using the turtle module.
+        Args:
+            list_rectangles (list): A list of Rectangle objects to draw.
+            list_squares (list): A list of Square objects to draw.
+        """
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("#b7312c")
+        turt.pensize(3)
+        turt.shape("turtle")
 
-        # Create a Turtle object for drawing
-        pen = turtle.Turtle()
-        pen.speed(1)  # Set the drawing speed (adjust as needed)
+        turt.color("#ffffff")
+        for rect in list_rectangles:
+            turt.showturtle()
+            turt.up()
+            turt.goto(rect.x, rect.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(rect.width)
+                turt.left(90)
+                turt.forward(rect.height)
+                turt.left(90)
+            turt.hideturtle()
 
-        # Draw rectangles
-        for rectangle in list_rectangles:
-            pen.penup()  # Lift the pen to move without drawing
-            pen.goto(rectangle.x, rectangle.y)  # Move to the starting position
-            pen.pendown()  # Lower the pen to start drawing
-            pen.color("blue")  # Set the color (you can change it)
+        turt.color("#b5e3d8")
+        for sq in list_squares:
+            turt.showturtle()
+            turt.up()
+            turt.goto(sq.x, sq.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(sq.width)
+                turt.left(90)
+                turt.forward(sq.height)
+                turt.left(90)
+            turt.hideturtle()
 
-            for _ in range(2):
-                pen.forward(rectangle.width)
-                pen.left(90)
-                pen.forward(rectangle.height)
-                pen.left(90)
-            pen.penup()  # Lift the pen after drawing the rectangle
-
-        # Draw squares
-        for square in list_squares:
-            pen.penup()  # Lift the pen to move without drawing
-            pen.goto(square.x, square.y)  # Move to the starting position
-            pen.pendown()  # Lower the pen to start drawing
-            pen.color("red")  # Set the color (you can change it)
-
-            for _ in range(4):
-                pen.forward(square.size)
-                pen.left(90)
-
-            pen.penup()  # Lift the pen after drawing the square
-
-        # Close the Turtle graphics window when clicked
-        screen.exitonclick()
+        turtle.exitonclick()
