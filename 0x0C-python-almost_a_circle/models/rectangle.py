@@ -20,11 +20,11 @@ class Rectangle(Base):
             id (int, optional): The ID to assign to the instance.
             If None, auto-generates a new ID.
         """
-        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
